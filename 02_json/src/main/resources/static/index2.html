@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--添加jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="result"></div>
+    <input type="file" id="file">
+    <input type="button" value="上传" onclick="uploadFile()">
+<script>
+    function uploadFile() {
+       var file= $("#file")[0].files[0];  //获得file对象转换成js数组，取第一个
+       var formData = new FormData();
+       formData.append("file",file);
+       $.ajax({
+           type:'post',
+           url:"/upload",
+           processDate:false,       //不需要转换成对象
+           contentType:false,       //不需要构造请求头
+           data:formData,
+           success:function (msg) {
+               $("#result").html(msg);
+           }
+       })
+
+    }
+</script>
+</body>
+</html>
