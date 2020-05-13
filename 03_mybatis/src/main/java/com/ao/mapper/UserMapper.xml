@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ao.mybatis.mapper.UserMapper">
+
+    <!-- 1.查询所有员工信息 id值为对应接口中方法的名字 resultMap:指定为resultMap标签的id值 -->
+    <select id="getAllUser" resultType="com.ao.entity.User">
+        select * from  user;
+    </select>
+
+</mapper>
